@@ -1,0 +1,37 @@
+# 프롬프트 구성 (폴더 -> 깃 브랜치 -> 깃 상태 -> 줄바꿈 기호)
+format = """
+$directory$git_branch$git_status
+$character"""
+
+# 밑에 줄바꿈 추가 (명령어 칠 때 여유 공간)
+add_newline = true
+
+# 입력 꺾쇠 모양
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+# 폴더 경로 표시 (예: ~/dotfiles/ghostty)
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold blue"
+
+# Git 브랜치 표시
+[git_branch]
+symbol = " "
+style = "bold purple"
+
+# Git 상태 표시 (수정됨, 추가됨 등)
+[git_status]
+style = "bold red"
+
+# 거추장스러운 기본 정보들 모두 숨김
+[aws]
+disabled = true
+[gcloud]
+disabled = true
+[username]
+show_always = false
+[hostname]
+disabled = true
