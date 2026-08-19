@@ -14,3 +14,7 @@ alias ll="eza -al --icons=always"
 alias cat="bat"
 alias vim="nvim"
 alias vi="nvim"
+
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
