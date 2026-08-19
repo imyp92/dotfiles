@@ -8,3 +8,9 @@ window-padding-y = 15
 
 # macOS 기본 타이틀바 숨기기 (더 깔끔한 사각형 창이 됨)
 macos-titlebar-style = "hidden"
+
+# customize
+keybind = shift+enter=text:\n
+shell-integration=zsh
+background-opacity=0.75
+background-blur=20
