@@ -1,0 +1,107 @@
+# ==========================================
+# Herdr Configuration (tmux 전환 및 Kanagawa 테마)
+# ==========================================
+# 파일 위치: dotfiles/herdr/.config/herdr/config.toml
+# 심볼릭 링크: ~/.config/herdr/config.toml (stow herdr)
+
+# ==========================================
+# 1. 테마 설정 (Kanagawa Wave & 투명 미니멀)
+# ==========================================
+[theme]
+# Ghostty 및 Neovim과 통일된 Kanagawa 테마 적용
+# (기본값: "catppuccin")
+name = "kanagawa"
+
+# Ghostty의 배경 투명도(0.75) 및 블러(20)를 패널에 투과시켜 미니멀한 유리 효과 적용
+# (기본값: unset)
+[theme.custom]
+panel_bg = "reset"
+
+# ==========================================
+# 2. 터미널 환경 및 경로 설정
+# ==========================================
+[terminal]
+# 새 창/분할 창 생성 시 현재 작업 경로(cwd) 유지
+# (tmux의 split-window -c "#{pane_current_path}" 동작과 동일)
+# (기본값: "follow")
+new_cwd = "follow"
+
+# ==========================================
+# 3. 키바인딩 설정 (Prefix 및 단축키)
+# ==========================================
+[keys]
+# 기본 Prefix(명령어 진입키)를 Ctrl+b에서 Ctrl+a로 변경
+# (기본값: "ctrl+b")
+prefix = "ctrl+a"
+
+# 세션 백그라운드 전환 (Detach): tmux의 Ctrl+a d 습관 지원
+# (기본값: "prefix+q")
+detach = ["prefix+d", "prefix+q"]
+
+# 직관적인 화면 분할 단축키:
+# | 키로 세로(좌우) 분할, - 키로 가로(상하) 분할
+# (기본값: split_vertical = "prefix+v", split_horizontal = "prefix+minus")
+split_vertical = ["prefix+|", "prefix+v"]
+split_horizontal = "prefix+-"
+
+# 마우스 없이 방향키로 화면 이동 (Alt + 방향키)
+# tmux의 bind -n M-Left/Right/Up/Down select-pane 및 vim 스타일(hjkl) 동시 지원
+# (기본값: "prefix+h", "prefix+j", "prefix+k", "prefix+l")
+focus_pane_left = ["alt+left", "prefix+h"]
+focus_pane_down = ["alt+down", "prefix+j"]
+focus_pane_up = ["alt+up", "prefix+k"]
+focus_pane_right = ["alt+right", "prefix+l"]
+
+# 탭(Window) 관리 단축키
+# Ctrl+a c: 새 탭 생성 (기본값: "prefix+c")
+new_tab = "prefix+c"
+# Ctrl+a & 또는 Ctrl+a Shift+X: 탭 닫기 (기본값: "prefix+shift+x")
+close_tab = ["prefix+shift+x", "prefix+&"]
+# Ctrl+a p: 이전 탭 (기본값: "prefix+p")
+previous_tab = "prefix+p"
+# Ctrl+a n: 다음 탭 (기본값: "prefix+n")
+next_tab = "prefix+n"
+# Ctrl+a 1~9: 숫자 키로 탭 직접 이동 (기본값: "prefix+1..9")
+switch_tab = "prefix+1..9"
+
+# 칸(Pane) 관리 단축키
+# Ctrl+a x: 현재 분할창 닫기 (기본값: "prefix+x")
+close_pane = "prefix+x"
+# Ctrl+a z: 현재 분할창 최대화/복원 토글 (기본값: "prefix+z")
+zoom = "prefix+z"
+
+# ==========================================
+# 4. UI 및 상태바 (Status Bar) 설정
+# ==========================================
+[ui]
+# 상태바를 화면 상단으로 배치 (tmux의 set -g status-position top)
+# (기본값: "top")
+tab_bar_position = "top"
+
+# 상태바 우측에 시간(%H:%M)만 깔끔하게 표시 (tmux의 status-right "%H:%M")
+# (기본값: [])
+tab_bar_right = [{ type = "datetime", format = "%H:%M" }]
+# (기본값: " ")
+tab_bar_right_separator = " "
+
+# 새 탭 생성 시 매번 이름 프롬프트 없이 즉시 생성
+# (기본값: true)
+prompt_new_tab_name = false
+
+# 마우스 조작 활성화 (tmux의 set -g mouse on)
+# (기본값: mouse_capture = true, copy_on_select = true)
+mouse_capture = true
+copy_on_select = true
+
+# tmux 스타일의 미니멀한 내부 분할선 적용 (외곽 테두리 및 갭 제거)
+# (기본값: pane_outer_borders = true, pane_gaps = true)
+pane_outer_borders = false
+pane_gaps = false
+
+# ==========================================
+# 5. 편의 및 한글 입력 설정 (macOS)
+# ==========================================
+[experimental]
+# Prefix 모드 진입 시 임시 영문 입력기 전환 (한글 상태 단축키 오작동 방지)
+# (기본값: false)
+switch_ascii_input_source_in_prefix = true
