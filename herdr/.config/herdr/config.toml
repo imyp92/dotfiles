@@ -78,12 +78,6 @@ zoom = "prefix+z"
 # (기본값: "top")
 tab_bar_position = "top"
 
-# 상태바 우측에 시간(%H:%M)만 깔끔하게 표시 (tmux의 status-right "%H:%M")
-# (기본값: [])
-tab_bar_right = [{ type = "datetime", format = "%H:%M" }]
-# (기본값: " ")
-tab_bar_right_separator = " "
-
 # 새 탭 생성 시 매번 이름 프롬프트 없이 즉시 생성
 # (기본값: true)
 prompt_new_tab_name = false
@@ -94,8 +88,8 @@ mouse_capture = true
 copy_on_select = true
 
 # tmux 스타일의 미니멀한 내부 분할선 적용 (외곽 테두리 및 갭 제거)
-# (기본값: pane_outer_borders = true, pane_gaps = true)
-pane_outer_borders = false
+# (기본값: pane_borders = true, pane_gaps = true)
+pane_borders = false
 pane_gaps = false
 
 # ==========================================
