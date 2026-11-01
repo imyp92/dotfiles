@@ -15,6 +15,13 @@ alias cat="bat"
 alias vim="nvim"
 alias vi="nvim"
 
+# C++ 컴파일 (macOS: Apple clang은 모듈 미지원이라 Homebrew LLVM 사용 / Linux: GCC)
+if [[ "$OSTYPE" == darwin* ]]; then
+    alias cxx="/opt/homebrew/opt/llvm/bin/clang++ -std=c++20 -Wall -Wextra -fexperimental-library"
+else
+    alias cxx="g++ -std=c++20 -Wall -Wextra -fmodules"
+fi
+
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
